@@ -1,0 +1,5 @@
+for COMPLETIONFILE in `find /usr/local/etc/bash_completion.d -type f`;
+do
+  source $COMPLETIONFILE
+done
+
