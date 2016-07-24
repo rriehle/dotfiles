@@ -25,6 +25,21 @@ set hidden
 " "turn on syntax highlighting
 syntax on
 
+" ================ Colorscheme ======================
+
+set t_Co=256
+
+if has('gui_running')
+    set background=light
+else
+    set background=dark
+endif
+
+let g:solarized_termcolors=256
+
+" colorscheme solarized
+" colorscheme default
+
 " ================ Indentation ======================
 
 set autoindent
@@ -81,3 +96,10 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" ================ vimdiff colorscheme ==============
+"
+" if &diff
+"     colorscheme evening
+" endif
+

@@ -31,6 +31,8 @@ fi
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
     xterm-color) color_prompt=yes;;
+    xterm-256color) color_prompt=yes;;
+    screen) color_prompt=no;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -76,11 +78,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
-
-# some more ls aliases
-alias ll='ls -alFG'
-alias la='ls -AG'
-alias l='ls -CFG'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -173,3 +170,10 @@ export WORKON_HOME=$HOME/.virtualenvs
 #syspip(){
 #   PIP_REQUIRE_VIRTUALENV="" pip3 "$@"
 #}
+
+# Required by the AWS CLI tools
+export JAVA_HOME=$(/usr/libexec/java_home)
+
+# Set the xterm title to the name of the current user    
+echo -e '\033k'$USER'\033\\'
+

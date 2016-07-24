@@ -9,6 +9,7 @@
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= #
 
 ##    Explanation of hardstatus line    ##
+##  http://www.gnu.org/software/screen/manual/html_node/String-Escapes.html#String-Escapes
 
 # Ignore the ' marks if you use these examples for yourself
 
@@ -46,7 +47,13 @@
 # Green text, time, and date; windows in blue:
 # hardstatus alwayslastline "%{=b}%{G} Screen(s): %{b}%w %=%{kG}%C%A  %D, %d %M %Y "
 # hardstatus alwayslastline "%{=b}%{G} Screen(s): %{b}%w %=%{kG}%C:%s %A  %D %d %M %Y "
-hardstatus alwayslastline "%{=b}%{G} @%H  %{b}%w %= %{kG}%C:%s %A  %D %d %M %Y "
+# hardstatus alwayslastline "%{=b}%{G} @%H  %{b}%w %= %{kG}%C:%s %A  %D %d %M %Y "
+hardstatus alwayslastline "%{Gk} @%H  %{yk}%w %= %{Gk}%C:%s %a %D %d %M %Y "
+
+# hardstatus alwayslastline '%{= G}[ %{G}%H %{g}][%= %{= w}%?%-Lw%?%{= R}%n*%f %t%?%{= R}(%u)%?%{= w}%+Lw%?%= %{= g}][ %{y}Load: %l %{g}][%{B}%Y-%m-%d %{W}%c:%s %{g}]'
+
+# hardstatus alwayslastline "%{rk}%H %{gk}%c %{yk}%M%d %{wk}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw%?"
+
 
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= #
 
@@ -79,3 +86,17 @@ bindkey -k F1 prev
 bindkey -k F2 next
 
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= #
+
+#  How to get 256 colors with Gnu Screen and Vim
+#  http://robotsrule.us/vim/
+#
+attrcolor b ".I"
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E38;5;%dm'
+# defbce "on"
+
+#  Trying to find a more usefult TERM setting than merely 'screen'
+#
+# export TERM=screen-256color
+# export TERM=xterm-256color
+# export TERM=xterm-color
+term screen-256color
