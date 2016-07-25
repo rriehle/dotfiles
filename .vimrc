@@ -37,8 +37,9 @@ endif
 
 let g:solarized_termcolors=256
 
-" colorscheme solarized
 " colorscheme default
+colorscheme solarized
+" colorscheme jellybeans
 
 " ================ Indentation ======================
 
